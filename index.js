@@ -1,11 +1,18 @@
 const app = require("express")();
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
+const { Server } = require("socket.io");
+const server = require("http").createServer(app);
 
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    credentials: true,
+  },
+});
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("chat message", (msg) => {
     console.log("message: " + msg);
+    socket.emit("chat message1", msg);
   });
   socket.on("disconnect", () => {
     console.log("user disconnected");
@@ -16,6 +23,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-http.listen(1505, () => {
+server.listen(1505, () => {
   console.log("listening on *:1505");
 });
