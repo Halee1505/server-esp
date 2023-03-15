@@ -14,7 +14,6 @@ io.on("connection", (socket) => {
 });
 
 app.get("/", (req, res) => {
-  socket.emit("chat message", "Hello World!");
   res.send("Hello World!");
 });
 
