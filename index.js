@@ -3,14 +3,16 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:3002",
+    origin: "*",
     credentials: true,
   })
 );
 const server = require("http").createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: true,
+    origin: "*",
+
+    methods: ["GET", "POST"],
     credentials: true,
   },
 });
