@@ -3,7 +3,7 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 app.use(
   cors({
-    origin: true,
+    origin: "http://localhost:3002",
     credentials: true,
   })
 );
