@@ -73,15 +73,11 @@
       }
     });
 
-    socket.on("chat message", function (msg) {
+    socket.addEventListener("chat message", function (msg) {
       var item = document.createElement("li");
       item.textContent = msg;
-      document.getElementById("messages").appendChild(item);
+      messages.appendChild(item);
       window.scrollTo(0, document.body.scrollHeight);
-    });
-
-    socket.on("connect", function () {
-      socket.emit("chat message", "hello server");
     });
   </script>
 </html>

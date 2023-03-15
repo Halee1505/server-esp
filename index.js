@@ -4,16 +4,15 @@ const io = require("socket.io")(http);
 
 io.on("connection", (socket) => {
   console.log("a user connected");
-
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
+  });
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
 });
 
 app.get("/", (req, res) => {
-  socket.on("chat message", (msg) => {
-    res.send(msg);
-  });
   res.send("Hello World!");
 });
 
