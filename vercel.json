@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "pubnub.js",
+        "src": "index.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/pubnub.js"
+        "dest": "/index.js"
       }
     ],
     "env": {
