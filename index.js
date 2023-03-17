@@ -6,7 +6,12 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: false,
+  })
+);
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -23,15 +28,17 @@ server.listen(PORT, () => {
 const io = socketIo(server, {
   cors: {
     origin: "*",
+    credentials: false,
   },
 });
 
 io.on("connection", (socket) => {
-  console.log("a user connected");
+  const transport = socket.conn.transport.name; // in most cases, "polling"
+  console.log("a user connected with transport: " + transport);
 
   socket.on("chat message", (msg) => {
     console.log("message: " + msg);
-    socket.emit("chat message1", msg);
+    socket.emit("chat message", msg);
   });
 
   socket.on("disconnect", () => {
