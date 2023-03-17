@@ -1,8 +1,8 @@
 const PubNub = require("pubnub");
 
 const pubnub = new PubNub({
-  publishKey: "pub-c-8fb1fc55-4e67-43c8-8138-d2e3449e6f2f",
-  subscribeKey: "sub-c-7ad5e7ab-5eaa-4095-a89c-08a4d211b887",
+  publishKey: process.env.PUBNUB_PUBLISH_KEY,
+  subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,
   userId: "halee-1505",
 });
 
