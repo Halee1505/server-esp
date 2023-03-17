@@ -25,6 +25,7 @@ const io = socketIo(server, {
   allowRequest: (req, callback) => callback(null, true),
   cors: {
     origin: "*",
+    methods: ["GET", "POST"],
     credentials: false,
   },
 });
