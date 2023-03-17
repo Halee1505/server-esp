@@ -23,6 +23,9 @@ server.listen(PORT, () => {
 app.get("/", (req, res) => {
   res.send("Hello Wor121sld!");
 });
+app.get("/cc", (req, res) => {
+  res.send("cc!");
+});
 app.get("/connect", (req, res) => {
   const channel = "connect-client";
   const message = "Connected from React Native";
