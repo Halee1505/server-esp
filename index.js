@@ -3,7 +3,7 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const pubnub = require("./config/pubnub");
-
+require("dotenv").config();
 const app = express();
 app.use(
   cors({
