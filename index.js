@@ -2,7 +2,7 @@ const serverless = require("serverless-http");
 const express = require("express");
 const http = require("http");
 const cors = require("cors");
-const pubnub = require("./config/pubnub");
+const pubnub = require("./pubnub");
 require("dotenv").config();
 const app = express();
 app.use(

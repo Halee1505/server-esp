@@ -4,7 +4,7 @@ require("dotenv").config();
 const pubnub = new PubNub({
   publishKey: process.env.PUBNUB_PUBLISH_KEY,
   subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,
-  userId: "halee-1505",
+  userId: "halee-server",
 });
 console.log(process.env.PUBNUB_PUBLISH_KEY);
 
