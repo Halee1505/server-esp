@@ -50,5 +50,8 @@ app.get("/", (req, res) => {
 app.get("/alo", (req, res) => {
   res.send("emwo đâsdmewo!");
 });
+app.post("/socket.io/", (req, res) => {
+  res.send("connected socket!");
+});
 
 module.exports.handler = serverless(app);
