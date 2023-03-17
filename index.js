@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
   res.send("Hello Wor121sld!");
 });
 app.get("/alo", (req, res) => {
-  res.send("emwo mewo!");
+  res.send("emwo đâsdmewo!");
 });
 
 module.exports.handler = serverless(app);
