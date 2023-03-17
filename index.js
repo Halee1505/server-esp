@@ -33,7 +33,9 @@ const io = socketIo(server, {
 
 io.on("connection", (socket) => {
   const transport = socket.conn.transport.name; // in most cases, "polling"
+  const sessionID = socket.handshake.query.sessionID;
   console.log("a user connected with transport: " + transport);
+  console.log("sessionID: " + sessionID);
 
   socket.on("chat message", (msg) => {
     console.log("message: " + msg);

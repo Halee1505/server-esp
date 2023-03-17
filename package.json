@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "git add . && git commit -m \"update1\" && git push"
+    "push": "git add . && git commit -m '$1' && git push"
   },
   "author": "Halee- Nguyen Hai Linh",
   "license": "ISC",
