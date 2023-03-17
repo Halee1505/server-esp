@@ -26,6 +26,7 @@ server.listen(PORT, () => {
 });
 
 const io = socketIo(server, {
+  allowRequest: (req, callback) => callback(null, true),
   cors: {
     origin: "*",
     credentials: false,
