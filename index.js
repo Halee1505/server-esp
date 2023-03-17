@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
   res.send("Hello Wor121sld!");
 });
 app.get("/connect", (req, res) => {
-  const channel = "connect";
+  const channel = "connect-client";
   const message = "Connected from React Native";
   pubnub.publish({ channel, message }, (status, response) => {
     if (status.error) {
