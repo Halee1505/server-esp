@@ -6,7 +6,6 @@ const pubnub = new PubNub({
   subscribeKey: process.env.PUBNUB_SUBSCRIBE_KEY,
   userId: "halee-server",
 });
-console.log(process.env.PUBNUB_PUBLISH_KEY);
 
 pubnub.subscribe({
   channels: ["connect-server"],

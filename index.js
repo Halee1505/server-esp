@@ -19,7 +19,9 @@ const PORT = process.env.PORT || 2222;
 server.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
 });
-
+setInterval(() => {
+  http.get("http://server-esp.onrender.com/");
+}, 840000);
 app.get("/", (req, res) => {
   res.send("Hello Wor121sld!");
 });
