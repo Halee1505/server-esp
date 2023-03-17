@@ -23,6 +23,7 @@ server.listen(PORT, () => {
 });
 
 const io = socketIo(server, {
+  transports: ["websocket", "polling"],
   allowRequest: (req, callback) => callback(null, true),
   cors: {
     origin: "*",
