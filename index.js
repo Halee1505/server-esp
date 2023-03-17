@@ -1,26 +1,39 @@
-const app = require("express")();
-const { Server } = require("socket.io");
+const serverless = require("serverless-http");
+const express = require("express");
+const http = require("http");
+const socketIo = require("socket.io");
 const cors = require("cors");
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-  })
-);
-const server = require("http").createServer(app);
-const io = new Server(server, {
+
+const app = express();
+
+app.use(cors());
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World!\n");
+});
+
+const PORT = 1505;
+
+server.listen(PORT, () => {
+  console.log(`Server running at port ${PORT}`);
+});
+
+const io = socketIo(server, {
   cors: {
     origin: "*",
-    methods: ["GET", "POST"],
-    credentials: true,
   },
 });
+
 io.on("connection", (socket) => {
   console.log("a user connected");
+
   socket.on("chat message", (msg) => {
     console.log("message: " + msg);
     socket.emit("chat message1", msg);
   });
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
@@ -30,6 +43,4 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-server.listen(1505, () => {
-  console.log("listening on *:1505");
-});
+module.exports.handler = serverless(app);
