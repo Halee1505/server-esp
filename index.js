@@ -38,5 +38,4 @@ app.get("/connect", (req, res) => {
   });
   res.send("Connected to PubNub");
 });
-
-module.exports.handler = serverless(app);
+module.exports = serverless(app);
