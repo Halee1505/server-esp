@@ -16,7 +16,7 @@ app.use(
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World!\n");
+  res.end("Hello Worlđấd!\n");
 });
 
 const PORT = process.env.PORT || 1505;
@@ -48,7 +48,7 @@ io.on("connection", (socket) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello Wor121sld!");
 });
 
 module.exports.handler = serverless(app);
