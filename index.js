@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     code: 200,
   });
 });
-app.get("/", (req, res) => {
+app.get("/control", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 app.get("/control/:action", (req, res) => {
