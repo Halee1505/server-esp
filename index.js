@@ -26,6 +26,9 @@ app.get("/", (req, res) => {
     code: 200,
   });
 });
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 app.get("/control/:action", (req, res) => {
   const { action } = req.params;
   const channel = "client";
