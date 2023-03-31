@@ -21,10 +21,7 @@ server.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send({
-    message: "Hello from serverless function!",
-    code: 200,
-  });
+  res.sendFile(__dirname + "/index.html");
 });
 app.get("/:action", (req, res) => {
   const { action } = req.params;
@@ -35,7 +32,7 @@ app.get("/:action", (req, res) => {
       console.error(status);
     }
   });
-  res.send(action);
+  res.sendFile(__dirname + "/index.html");
 });
 
 module.exports = serverless(app);
