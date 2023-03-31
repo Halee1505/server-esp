@@ -21,3 +21,5 @@ pubnub.addListener({
     });
   },
 });
+
+module.exports = pubnub;
