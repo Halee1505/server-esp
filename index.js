@@ -19,26 +19,23 @@ const PORT = process.env.PORT || 2222;
 server.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
 });
-setInterval(() => {
-  http.get("http://server-esp.onrender.com/");
-  console.log("ping");
-}, 1000 * 60 * 10);
+
 app.get("/", (req, res) => {
   res.send("Hello Wor121sld!");
 });
 app.get("/cc", (req, res) => {
   res.send("cc!");
 });
-app.get("/connect", (req, res) => {
-  const channel = "connect-client";
-  const message = "Connected from React Native";
-  pubnub.publish({ channel, message }, (status, response) => {
-    if (status.error) {
-      console.error(status);
-    } else {
-      console.log("Sent message to PubNub", response);
-    }
-  });
-  res.send("Connected to PubNub");
-});
+// app.get("/connect", (req, res) => {
+//   const channel = "connect-client";
+//   const message = "Connected from React Native";
+//   pubnub.publish({ channel, message }, (status, response) => {
+//     if (status.error) {
+//       console.error(status);
+//     } else {
+//       console.log("Sent message to PubNub", response);
+//     }
+//   });
+//   res.send("Connected to PubNub");
+// });
 module.exports = serverless(app);
