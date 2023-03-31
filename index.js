@@ -21,7 +21,8 @@ server.listen(PORT, () => {
 });
 setInterval(() => {
   http.get("http://server-esp.onrender.com/");
-}, 840000);
+  console.log("ping");
+}, 10000);
 app.get("/", (req, res) => {
   res.send("Hello Wor121sld!");
 });
