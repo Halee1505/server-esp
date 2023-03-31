@@ -21,9 +21,12 @@ server.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.send({
+    message: "connected",
+    code: 200,
+  });
 });
-app.get("/:action", (req, res) => {
+app.get("/control/:action", (req, res) => {
   const { action } = req.params;
   const channel = "client";
   const message = action;
